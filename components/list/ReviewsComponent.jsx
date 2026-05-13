@@ -1,0 +1,83 @@
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+
+export const ReviewsComponent = () => {
+  const router = useRouter();
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.back()}>
+          <Ionicons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+
+        <Text style={styles.title}>Users Review</Text>
+
+        <TouchableOpacity style={styles.searchButton}>
+          <Ionicons name="search" size={20} color="#000" />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.categories}>
+        <Text style={styles.categoryText}>630 reviews</Text>
+        <Text style={styles.categoryText}>See all</Text>
+      </View>
+
+      <TouchableOpacity>
+        <Image
+          source={require("../../assets/images/reviews.png")}
+          style={styles.bannerImage}
+          resizeMode="cover"
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#363130",
+    paddingTop: 60,
+    paddingHorizontal: 20,
+  },
+
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  title: {
+    color: "#f3b4a3",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+
+  searchButton: {
+    backgroundColor: "#f3b4a3",
+    padding: 10,
+    borderRadius: 20,
+  },
+
+  categories: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 35,
+  },
+
+  categoryText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "500",
+  },
+
+  bannerImage: {
+    width: "100%",
+    height: 300,
+    borderRadius: 15,
+    marginTop: 30,
+  },
+});
